@@ -14,15 +14,15 @@
 
     <br><br>
     <div align="center">
-        <h1>研磨機</h1>
+        <h1>射出成形機</h1>
     </div>
     <div align="center">
-        <h2>維修紀錄</h2>
+        <h2>機台 001A</h2>
     </div><br><br>
     
     <form method="post" id="info">
       <div align="center">
-        <h3>工單編號 <input type="text" id="serial_num" name="serial_num" checked></h3>
+        <h3>工單編號 <input type="text" id="serial_num" name="serial_num" required></h3>
       </div><br>
 
       <div align="center">
@@ -33,7 +33,7 @@
       </div><br>
 
       <div align="center">
-        <button type="button" onclick=check() class="btn btn-primary btn-lg" style="WIDTH: 480px; HEIGHT: 50px">開始維修</button>
+        <button type="submit" class="btn btn-primary btn-lg" style="WIDTH: 480px; HEIGHT: 50px">開始維修</button>
         <br>（請「開始維修時」就按此按鈕，以便系統記錄開始維修時間）
       </div>
 
@@ -41,15 +41,6 @@
 
     <script>
         document.getElementById("serial_num").focus();
-    
-        function check() {
-            // alert(document.getElementById("serial_num").value)
-            if (document.getElementById("serial_num").value == "") {
-                alert("輸入值不能空白喔！");
-            } else {
-                document.getElementById('info').submit();
-            }
-        }
     </script>    
     
   </body>
