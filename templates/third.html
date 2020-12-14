@@ -1,0 +1,108 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>研磨機</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+	</head>
+
+<body>
+    <br><br><div align="center"><h1>研磨機 維修紀錄</h1></div>
+
+    <div align="center"><h2>維修原因</h2></div>
+
+    <div align="center"><h3>流程卡 {{serial_num}}</h3></div><br>
+    
+    <div align="center">
+        {{cause}}
+        <form method="post" id="info">
+            {% if cause == "油路問題" %}
+            {% for x in [
+                '油箱修繕',
+                '油管破裂更換',
+                '漏油處理'] %}
+                <label><input name="fault_type" type="radio" value={{x}} style="WIDTH: 40px; HEIGHT: 30px" checked><font size=8>{{x}}</font></label><br>
+            {% endfor %}
+            {% endif %}
+
+            {% if cause == "水路問題" %}
+            {% for x in [
+                '給水開關損壞',
+                '水路阻塞清理',
+                '冷卻水塔缺水'] %}
+                <label><input name="fault_type" type="radio" value={{x}} style="WIDTH: 40px; HEIGHT: 30px" checked><font size=8>{{x}}</font></label><br>
+            {% endfor %}
+            {% endif %}
+
+            {% if cause == "電路問題" %}
+            {% for x in [
+                '搖擺馬達故障',
+                '漏電檢查',
+                '保險絲損壞更換',
+                '更換變頻器',
+                '更換光電開關',
+                '面板按鈕故障更換',
+                '更換減速機馬達',
+                '計數器',
+                '故障重新設定'] %}
+                <label><input name="fault_type" type="radio" value={{x}} style="WIDTH: 40px; HEIGHT: 30px" checked><font size=8>{{x}}</font></label><br>
+            {% endfor %}
+            {% endif %}
+
+            {% if cause == "氣壓問題" %}
+            {% for x in [
+                '三點組合故障更換',
+                '氣壓異常處理'] %}
+                <label><input name="fault_type" type="radio" value={{x}} style="WIDTH: 40px; HEIGHT: 30px" checked><font size=8>{{x}}</font></label><br>
+            {% endfor %}
+            {% endif %}
+
+            {% if cause == "機構問題" %}
+            {% for x in [
+                '萬向街頭脫落',
+                '更換導輪軸承',
+                '更換研磨輪',
+                '清理出球槽',
+                '水平調整',
+                '導輪更換',
+                '主軸更換軸承',
+                '導輪卡住處理',
+                '萬向接',
+                '頭更換搖擺定位調整',
+                '落球異常調整',
+                '主軸皮帶更換',
+                '更換分隔條',
+                '更換水平滑軌',
+                '進刀調整',
+                '搖擺機構調整'] %}
+                <label><input name="fault_type" type="radio" value={{x}} style="WIDTH: 40px; HEIGHT: 30px" checked><font size=8>{{x}}</font></label><br>
+            {% endfor %}
+            {% endif %}
+
+            {% if cause == "輸送帶問題" %}
+            {% for x in [
+                '輸送帶停止異常處理',
+                '更換研磨輪輸送帶落球機構'] %}
+                <label><input name="fault_type" type="radio" value={{x}} style="WIDTH: 40px; HEIGHT: 30px" checked><font size=8>{{x}}</font></label><br>
+            {% endfor %}
+            {% endif %}
+
+        </form>
+    </div>
+
+    <div align="center">
+        <input type="submit" value='送出紀錄' id="final_submit" name="final_submit" class="btn btn-primary btn-lg btn-block" style="WIDTH: 480px; HEIGHT: 50px" onclick='check()'><br>（請「完成維修後」再按此按鈕）<br>
+    </div>
+
+    <script>
+        function check() {
+            document.getElementById('info').submit();
+            alert('紀錄已送出！')
+        }
+	</script>
+	
+</body>
+
+</html>

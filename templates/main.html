@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>研磨機</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+  </head>
+
+  <body>
+
+    <br><br>
+    <div align="center">
+        <h1>研磨機</h1>
+    </div>
+    <div align="center">
+        <h2>維修紀錄</h2>
+    </div><br><br>
+    
+    <form method="post" id="info">
+      <div align="center">
+        <h3>工單編號 <input type="text" id="serial_num" name="serial_num" checked></h3>
+      </div><br>
+
+      <div align="center">
+        <h3>維修人員
+          <select id="admin">
+            <option>Administrator</option>
+          </select></h3>
+      </div><br>
+
+      <div align="center">
+        <button type="button" onclick=check() class="btn btn-primary btn-lg" style="WIDTH: 480px; HEIGHT: 50px">開始維修</button>
+        <br>（請「開始維修時」就按此按鈕，以便系統記錄開始維修時間）
+      </div>
+
+    </form>    
+
+    <script>
+        document.getElementById("serial_num").focus();
+    
+        function check() {
+            // alert(document.getElementById("serial_num").value)
+            if (document.getElementById("serial_num").value == "") {
+                alert("輸入值不能空白喔！");
+            } else {
+                document.getElementById('info').submit();
+            }
+        }
+    </script>    
+    
+  </body>
+</html>

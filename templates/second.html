@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>研磨機</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+	</head>
+
+<body>
+    <br><br><div align="center"><h1>研磨機 維修紀錄</h1></div>
+
+    <div align="center"><h2>維修原因</h2></div>
+
+	<div align="center"><h3>流程卡 {{serial_num}}</h3></div><br>
+	
+	<form method="post" id="info">
+		<div align="center">
+			<!--<div style="width:300px; height:auto; float:left; display:inline"><p></div>-->
+			<!--<div style="width:200px; height:auto; float:left; display:inline">-->
+			<div style="width:500px; height:auto">
+		
+				<input type="submit" value='油路問題' id="ooo" name="ooo" class="btn btn-primary btn-lg btn-block" onclick='check()'><p><br>
+				<input type="submit" value='水路問題' id="ooo" name="ooo" class="btn btn-primary btn-lg btn-block" onclick='check()'><br>
+				<input type="submit" value='電路問題' id="ooo" name="ooo" class="btn btn-primary btn-lg btn-block" onclick='check()'><br>
+				<input type="submit" value='氣壓問題' id="ooo" name="ooo" class="btn btn-primary btn-lg btn-block" onclick='check()'><br>
+				<input type="submit" value='機構問題' id="ooo" name="ooo" class="btn btn-primary btn-lg btn-block" onclick='check()'><br>
+				<input type="submit" value='輸送帶問題' id="ooo" name="ooo" class="btn btn-primary btn-lg btn-block" onclick='check()'><br>
+		
+			</div>
+		</div>
+	</form>
+
+
+    <script>
+        function check() {
+			document.getElementById('info').submit();
+        }
+	</script>
+	
+</body>
+
+</html>
